@@ -19,7 +19,7 @@ function Loader(){
   useEffect(()=>{
   setTimeout(()=>{nav("/main")},3000);
 
-  },[])
+  },[nav])
 
 return (
 <>
