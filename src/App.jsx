@@ -15,8 +15,9 @@ function App() {
   )
 }
 function Loader(){
-  const nav=useNavigate();
+  
   useEffect(()=>{
+    const nav=useNavigate();
   setTimeout(()=>{nav("/main")},3000);
 
   },[])
