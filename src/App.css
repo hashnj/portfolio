@@ -1,0 +1,116 @@
+#root {
+  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  /* overflow: hidden; */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+.nav{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  width:98vw;
+}
+.nav .container{
+  box-sizing: border-box;
+  display: flex;
+  font-size: 36px;
+  /* position:relative; */
+
+  background-color: rgb(200, 185, 134);
+  align-items: flex-start;
+  padding-left: 20px;
+}
+.info ,.project,.skills,.contact,.con{
+  width: 98vw;
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .info{background-color: aqua;} */
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(199, 183, 120);
+  /* border-radius: 10px; */
+  width:90vw;
+  height: 100%;
+}
+.out{
+  width: 100vw;
+  height: 100vh;
+  background-color: aliceblue !important;
+  overflow:hidden !important;
+  color: black;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bolt{
+  background: url(C:\Users\menik\OneDrive\Desktop\personal\portfolio\src\R-removebg-preview.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:165px;
+  height: 103px;
+  position: relative;
+    z-index: 1;
+    /* left:30vw;
+    bottom: 40vh; */
+    /* mix-blend-mode: darken; */
+    transform-origin: 50% 50%;
+    /* border:1px solid rgb(236, 234, 234); */
+    animation: rotation 10s infinite linear;
+    /* opacity: 45%; */
+}
+@keyframes rotation {
+  0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(359deg);
+}
+}
