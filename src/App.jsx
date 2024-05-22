@@ -25,7 +25,7 @@ return (
 <>
     <div className='out'>
     <div className="bolt"></div>
-    <div>Loading Creativity <span id='1'>.</span><span id='2'>.</span><span id='3'>.</span><span id='4'>.</span></div>
+    <div className="top">Loading Creativity <span id='1'>.</span><span id='2'>.</span><span id='3'>.</span><span id='4'>.</span></div>
     </div>
     </>
 )
