@@ -6,7 +6,7 @@
   /* overflow: hidden; */
 }
 
-.logo {
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -17,7 +17,7 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-}
+} */
 
 @keyframes logo-spin {
   from {
@@ -91,7 +91,7 @@
   justify-content: center;
 }
 .bolt{
-  background: url(C:\Users\menik\OneDrive\Desktop\personal\portfolio\src\R-removebg-preview.png);
+  background: url("https://th.bing.com/th/id/R.bb02ccd2fd5e3ccc6881e353911e2fdc?rik=Colk1JoJQl6tGQ&riu=http%3a%2f%2farsenal-s3.gomedia.us%2fwp-content%2fuploads%2fgma-set-21-nuts-and-bolts-181.png&ehk=XU%2fO%2fCPJqaNayzXz3YTZogzy3rZHrrPUrmOCJvVBIYQ%3d&risl=&pid=ImgRaw&r=0");
   background-size: contain;
   background-repeat: no-repeat;
   width:165px;
