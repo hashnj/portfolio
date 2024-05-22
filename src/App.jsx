@@ -18,7 +18,6 @@ function Loader(){
     const nav=useNavigate();
   useEffect(()=>{
   setTimeout(()=>{nav("/main")},3000);
-
   },[nav])
 
 return (
@@ -36,26 +35,29 @@ function Page(){
     <div className="nav">
       <div className="container">navv</div>
     </div>
-      <div className="info">
+    <div className="info">
         <div className="container">
-          <h1>Title</h1>
-          <p>Description</p>
+          <h1>Crafting Tomorrow's Tech Today</h1>
+          <p>Hello! I'm Nikhilesh Joshi, a passionate and driven learner, specializing in <a href="https://careerfoundry.com/en/blog/web-development/what-is-the-mern-stack/#mern-stack-technologies">MERN</a> stack. </p>
           
         </div>
       </div>
       <div className="project">
         <div className="container">
           <h1>projects</h1>
+          <div></div>
         </div>
       </div>
       <div className="skills">
         <div className="container">
           <h1>skills</h1>
+          <div></div>
         </div>
       </div>
       <div className="contact">
         <div className="container">
           <h1>contact me</h1>
+          <div></div>
         </div>
       </div>
       <div className="con">
@@ -64,7 +66,6 @@ function Page(){
       </div>
       </div>
       <div className="footer">
-
       </div>
     </>
   )
