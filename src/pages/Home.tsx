@@ -1,5 +1,12 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { 
+  FaArrowRight,
+  // FaGithub
+ } from "react-icons/fa";
+import ProjectsList from "../Projects";
+import ProjectComponent from "../Components/ProjectComponent";
+import ExperienceSection from "../Components/ExperienceSection";
+import EducationSection from "../Components/Education";
 
 const Home: React.FC = () => {
   return (
@@ -35,9 +42,39 @@ const Home: React.FC = () => {
           </a>
         </div>
       </div>
-      <div className="py-6" >
-        <h2 className="text-xl font-bold">Projects</h2>
-        <div></div>
+      {/* projects */}
+      <div className="py-6 px-2 cursor-default w-full ">
+      <h2 className="text-3xl font-bold  mb-8 text-center">Projects</h2>
+        <div className="grid grid-cols-2 gap-8">
+          {ProjectsList.map(
+            (item, index) =>
+              index < 2 && (
+                <ProjectComponent item={item} index={index}/>
+              )
+          )}
+        </div>
+        <div className="w-full p-2 flex justify-center items-center">
+          <button className="flex justify-center items-center gap-1 font-mono text-zinc-600 cursor-pointer hover:text-zinc-400   p-2">
+            View more <FaArrowRight />
+          </button>
+        </div>
+      </div>
+      {/** end projects */}
+
+      <div className="border-l-1 border-gray-400 dark:border-gray-300/30 px-2 mx-auto">
+        
+      {/* Experience */}
+      <div className="">
+        <ExperienceSection/>
+      </div>
+      {/* Education */}
+      <div className="">
+        <EducationSection/>  
+      </div>
+      </div>
+      <div className="flex flex-col">
+      <span>Skills & Technologies</span>
+      Badges & Achievements
       </div>
     </div>
   );

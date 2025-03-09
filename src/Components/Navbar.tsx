@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <nav className="max-w-2xl w-full  z-10 backdrop-blur-xs flex justify-between items-center py-3 text-xl font-semibold  border-black/10 dark:border-zinc-100/20 mx-auto sticky top-0 ">
+    <nav className="max-w-2xl w-full z-10 backdrop-blur-xs flex justify-between items-center py-3 text-xl font-semibold  border-black/10 dark:border-zinc-100/20 mx-auto sticky top-0 ">
       <div>
         <button onClick={() => nav("/")} className="cursor-pointer text-2xl">
           Hash-nj
