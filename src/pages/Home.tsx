@@ -7,23 +7,26 @@ import ProjectsList from "../Projects";
 import ProjectComponent from "../Components/ProjectComponent";
 import ExperienceSection from "../Components/ExperienceSection";
 import EducationSection from "../Components/Education";
+import { useNavigate } from "react-router-dom";
+import Skills from "../Components/Skills";
 
 const Home: React.FC = () => {
+  const nav = useNavigate();
   return (
     <div className="flex flex-col w-full ">
-      <div className="py-6">
-        <h1 className="text-3xl font-bold text-red-700 ">
+      <div className="pt-8 sm:py-6">
+        <h1 className="text-xl sm:text-3xl font-bold text-red-700 ">
           Hey, I am Nikhilesh Joshi !
         </h1>
-        <p className="text-lg pt-6">
+        <p className="text-base pt-2 sm:text-lg sm:pt-6">
           A full-stack developer specializing in the MERN stack. Focused on
           building intuitive and high-performance web applications with touch of
           modern design.
         </p>
-        <span className="text-xl font-thin">
+        <span className="sm:text-xl font-thin">
           Let’s build something awesome!
         </span>
-        <div className="flex gap-2 mt-4 text-xl">
+        <div className="flex gap-2 mt-4 sm:text-xl">
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=joshinikhilesh46@gmail.com&su=Let's%20Work%20Together&"
             target="_blank"
@@ -44,8 +47,8 @@ const Home: React.FC = () => {
       </div>
       {/* projects */}
       <div className="py-6 px-2 cursor-default w-full ">
-      <h2 className="text-3xl font-bold  mb-8 text-center">Projects</h2>
-        <div className="grid grid-cols-2 gap-8">
+      <h2 className="text-2xl sm:text-3xl font-bold  mb-8 text-center">Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {ProjectsList.map(
             (item, index) =>
               index < 2 && (
@@ -54,7 +57,10 @@ const Home: React.FC = () => {
           )}
         </div>
         <div className="w-full p-2 flex justify-center items-center">
-          <button className="flex justify-center items-center gap-1 font-mono text-zinc-600 cursor-pointer hover:text-zinc-400   p-2">
+          <button 
+            className="flex justify-center items-center gap-1 font-mono text-zinc-600 cursor-pointer hover:text-zinc-400 p-2"
+            onClick={()=>nav('/projects')}  
+          >
             View more <FaArrowRight />
           </button>
         </div>
@@ -73,8 +79,7 @@ const Home: React.FC = () => {
       </div>
       </div>
       <div className="flex flex-col">
-      <span>Skills & Technologies</span>
-      Badges & Achievements
+      <Skills/>
       </div>
     </div>
   );

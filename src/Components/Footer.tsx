@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
   }, [theme]);
 
   return (
-    <footer className="w-full h-14 flex items-center justify-between px-10 border-t border-zinc-100/30">
+    <footer className="w-full h-24 flex items-center justify-between px-10 border-t border-zinc-100/30">
       <div className="text-lg font-semibold cursor-default">
         <span
           onClick={() => window.open("https://github.com/hashnj", "_blank")}
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
         </span>
       </div>
 
-      <div className="flex gap-2.5 text-xl">
+      <div className="flex gap-5 text-xl">
         <a
           href="https://github.com/hashnj"
           target="_blank"
@@ -59,9 +59,9 @@ const Footer: React.FC = () => {
         </a>
       </div>
 
-      <div className="relative border border-zinc-300/50 rounded-full py-1 px-2 flex items-center">
+      <div className="relative border border-zinc-300/20 rounded-full py-1 px-3  flex items-center">
         <motion.div
-          className="absolute  gap-1 bg-zinc-500/50 rounded-full p-3"
+          className="absolute  gap-1 bg-zinc-500/40 rounded-full p-3"
           initial={false}
           animate={{ x: activeIndex * 24 }}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}

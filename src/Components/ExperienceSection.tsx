@@ -26,8 +26,8 @@ const experiences: ExperienceItem[] = [
 
 const ExperienceSection: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto ">
-      <h2 className="text-3xl font-bold  mb-8 text-center">Experience</h2>
+    <div className="max-w-2xl mx-auto ">
+      <h2 className="text-2xl sm:text-3xl font-bold  mb-8 text-center">Experience</h2>
 
       <div className="relative border-gray-300 dark:border-gray-700 ">
         {experiences.map((exp, index) => (
@@ -41,11 +41,11 @@ const ExperienceSection: React.FC = () => {
           >
             <div className="absolute -left-7 top-13 sm:-left-10 w-4 h-4 sm:w-5 sm:h-5 dark:text-gray-600 text-gray-400 rounded-full"><FaArrowRight/></div>
 
-            <div className=" p-4 sm:p-6 rounded-lg shadow-lg max-w-lg w-lg border-gray-600/40 border-2">
-              <span className="text-sm text-gray-500">{exp.year}</span>
+            <div className=" p-4 sm:p-6 rounded-lg shadow-lg max-w-xl w-full border-gray-600/30 dark:border-gray-600/40 border-2">
+              <span className="text-sm text-gray-400">{exp.year}</span>
               <h3 className="text-lg font-semibold">{exp.title}</h3>
-              <p className="text-sm text-gray-600">{exp.company}</p>
-              <p className="mt-2 text-gray-700">{exp.description}</p>
+              <p className="text-sm text-gray-500">{exp.company}</p>
+              <p className="mt-2 text-gray-600">{exp.description}</p>
             </div>
           </motion.div>
         ))}

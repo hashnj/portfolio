@@ -25,16 +25,16 @@ const Navbar: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <nav className="max-w-2xl w-full z-10 backdrop-blur-xs flex justify-between items-center py-3 text-xl font-semibold  border-black/10 dark:border-zinc-100/20 mx-auto sticky top-0 ">
+    <nav className="max-w-2xl w-full px-4 md:px-0 z-10 backdrop-blur-xs flex justify-between items-center py-3 text-xl font-semibold  border-black/10 dark:border-zinc-100/20 mx-auto sticky top-0 ">
       <div>
         <button onClick={() => nav("/")} className="cursor-pointer text-2xl">
           Hash-nj
         </button>
       </div>
 
-      <div className="relative flex gap-3 border border-zinc-200/30 rounded-full px-4 justify-center items-center">
+      <div className="absolute ml-2 max-sm:left-1/2  translate-x-1/3 max-sm:-translate-x-1/2  sm:relative  top-14 mx-auto sm:top-0 flex gap-3 border border-zinc-900/30 dark:border-zinc-200/30 rounded-full px-4 justify-center items-center">
         <motion.div
-          className={`absolute ml-2 bottom-0 overflow-hidden h-px bg-gradient-to-r from-blue-500/10 via-red-500/70 to-blue-500/10 ${
+          className={`absolute ml-2 bottom-0 overflow-hidden h-px bg-gradient-to-r from-gray-500/10 via-red-500/70 to-gray-500/10 ${
             activeIndex === 2 ? "px-1 ml-6" : ""
           } ${activeIndex === 1 ? "ml-6" : ""} ${
             activeIndex === 3 ? "ml-3" : ""
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
         })}
       </div>
 
-      <div>
+      <div className="">
         <a
           href="https://github.com/hashnj"
           target="_blank"
