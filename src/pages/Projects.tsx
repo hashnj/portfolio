@@ -7,8 +7,8 @@ const Projects = () => {
       <h1 className="text-3xl font-bold mt-4 text-center ">Projects</h1>
 
       <div className="mt-10 grid sm:grid-cols-2 gap-3 p-2 w-full">
-        {ProjectsList.map((item, index) => (
-          <ProjectComponent item={item} index={index} />
+        {ProjectsList.map((item) => (
+          <ProjectComponent item={item}  />
         ))}
       </div>
     </div>
