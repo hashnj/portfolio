@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { X } from "lucide-react";
+import { useState, useRef } from "react";
 import { CgArrowTopRight } from "react-icons/cg";
 import { FaGithub } from "react-icons/fa";
 
@@ -6,90 +7,159 @@ interface Item {
   images: string[];
   title: string;
   github: string;
+  tags:string[];
   description: string;
   demo: string;
 }
 
 interface ProjectComponentProps {
   item: Item;
-  index: number;
 }
 
 const ProjectComponent: React.FC<ProjectComponentProps> = ({ item }) => {
   const [info, setInfo] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const cardVideoRef = useRef<HTMLVideoElement>(null);
+  const modalVideoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    console.log(info);
-  }, [info]);
+  const handleCloseModal = () => {
+    setInfo(false);
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+    }
+  };
 
   return (
-    <div
-      className="relative transition ease-in-out duration-200 cursor-pointer p-6 border border-neutral-800/30 dark:border-neutral-500/50 rounded-xl dark:hover:border-dark-white-100 flex flex-col hover:border-highlight group"
-    >
-      <button
-        className="absolute inset-0 cursor-pointer"
-        onClick={() => setInfo(true)}
-        aria-label={`View ${item.title} description`}
-      ></button>
+    <>
+      {info && (
+        <div
+          className="fixed inset-0 z-50 flex justify-center items-center bg-neutral-950/40 backdrop-blur-sm"
+          onClick={handleCloseModal}
+        >
+          <div
+            className="w-[90%] md:w-3/5 lg:w-2/5 bg-neutral-900 rounded-2xl border border-neutral-200/30 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-4 border-b border-neutral-200/20">
+              <h1 className="text-xl md:text-2xl font-semibold">{item.title}</h1>
+              <button onClick={handleCloseModal} className="rounded p-1 hover:bg-neutral-800">
+                <X className="md:size-6" />
+              </button>
+            </div>
+
+            <div className="relative w-full h-56 md:h-72 flex justify-center items-center  rounded-t-lg overflow-hidden">
+              {item.images[1] ? (
+                <video
+                  ref={modalVideoRef}
+                  src={item.images[1]}
+                  loop
+                  muted
+                  autoPlay
+                  playsInline
+                  className="absolute w-full p-4  object-cover"
+                />
+              ) : (
+                <img
+                  src={item.images[0] || "/fallback.jpg"}
+                  alt={item.title}
+                  className="absolute w-4/5 h-full object-cover"
+                />
+              )}
+            </div>
+
+            <div className="p-6 space-y-4">
+
+              <div className="flex flex-wrap gap-2  ">
+                {item.tags.map(t=><div className="border border-neutral-400/30 px-2 py-1 rounded-lg">{t}</div> )}
+              </div>
+              
+              <p className="text-neutral-300 text-sm leading-relaxed">{item.description}</p>
+
+              <div className="flex items-center gap-4">
+                <a
+                  href={item.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm flex items-center gap-1 text-neutral-400 hover:text-white"
+                >
+                  <FaGithub className="size-5" /> GitHub
+                </a>
+                {item.demo && (
+                  <a
+                    href={item.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm flex items-center gap-1 text-neutral-400 hover:text-white"
+                  >
+                    Live Demo <CgArrowTopRight />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div
-        className="relative group flex justify-center items-center h-36 my-2 mb-4 w-full"
-        onMouseEnter={() => {
-          if (videoRef.current) {
-            videoRef.current.currentTime = 0;
-            videoRef.current.play();
-          }
-        }}
+        className="relative p-6 border border-neutral-800/30 dark:border-neutral-500/50 rounded-xl transition hover:border-highlight cursor-pointer group"
+        onClick={() => setInfo(true)}
       >
-        {item.images[1] ? (
-          <video
-            ref={videoRef}
-            src={item.images[1]}
-            loop
-            muted
-            className="hidden object-cover rounded-lg group-hover:block"
+        <div
+          className="relative w-full h-40 md:h-44 flex justify-center items-center bg-black rounded-lg overflow-hidden"
+          onMouseEnter={() => {
+            if (cardVideoRef.current) {
+              cardVideoRef.current.currentTime = 0;
+              cardVideoRef.current.play();
+            }
+          }}
+        >
+          {item.images[1] ? (
+            <video
+              ref={cardVideoRef}
+              src={item.images[1]}
+              loop
+              muted
+              playsInline
+              className="absolute w-full  object-cover hidden group-hover:block"
+            />
+          ) : null}
+
+          <img
+            src={item.images[0] || "/fallback.jpg"}
+            alt={item.title}
+            className={`absolute w-full  object-cover ${
+              item.images[1] ? "group-hover:hidden" : ""
+            }`}
           />
-        ) : null}
+        </div>
 
-        <img
-          src={item.images[0] || "/fallback.jpg"}
-          alt={item.title}
-          className={`max-w-full  object-cover rounded-lg ${
-            item.images[1] ? "group-hover:hidden" : ""
-          }`}
-        />
+        <div className="flex justify-between items-center mt-4">
+          <h2 className="text-lg font-semibold">{item.title}</h2>
+          <a
+            href={item.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-400 hover:text-white"
+          >
+            <FaGithub className="size-5" />
+          </a>
+        </div>
+
+        <p className="text-neutral-500 text-sm mt-2 line-clamp-3">{item.description}</p>
+
+        {item.demo && (
+          <div className="mt-3">
+            <a
+              href={item.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm flex items-center gap-1 text-neutral-400 hover:text-white"
+            >
+              Live Demo <CgArrowTopRight />
+            </a>
+          </div>
+        )}
       </div>
-
-      <div className="flex justify-between items-center relative">
-        <p className="font-medium text-lg">{item.title}</p>
-        <a
-          href={item.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-lg dark:hover:text-dark-white hover:text-zinc-400 dark:text-dark-white-300 z-10"
-          aria-label={`View ${item.title} on GitHub`}
-        >
-          <FaGithub />
-        </a>
-      </div>
-
-      <p className="text-zinc-500 dark:text-dark-white-300 h-10 sm:h-full overflow-hidden text-pretty font-mono text-sm mt-2">
-        {item.description}
-      </p>
-      <span className="absolute bottom-14 sm:hidden right-8 text-zinc-500">...</span>
-
-      <div className="flex items-center gap-3 mt-3 z-10">
-        <a
-          href={item.demo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-zinc-600 hover:text-zinc-400 dark:text-dark-white-300 flex items-center group-hover:text-highlight gap-1"
-        >
-          Live Demo <CgArrowTopRight />
-        </a>
-      </div>
-    </div>
+    </>
   );
 };
 

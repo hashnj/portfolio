@@ -31,7 +31,7 @@ const Home: React.FC = () => {
             href="https://mail.google.com/mail/?view=cm&fs=1&to=joshinikhilesh46@gmail.com&su=Let's%20Work%20Together&"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-red-500/60 text-red-950  px-2 py-1 rounded-lg"
+            className="flex items-center gap-2 bg-red-500/60 text-neutral-300/80  p-2 rounded-lg"
           >
             Open For Work <FaArrowRight />
           </a>
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
             href="https://www.linkedin.com/in/nikhilesh-joshi-hashnj"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-zinc-300/60 text-zinc-950 px-2 py-1 rounded-lg"
+            className="flex items-center gap-2 bg-zinc-700 text-neutral-300/50 px-2 py-1 rounded-lg"
           >
             @hashnj
           </a>
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
           {ProjectsList.map(
             (item, index) =>
               index < 2 && (
-                <ProjectComponent item={item} index={index}/>
+                <ProjectComponent item={item}/>
               )
           )}
         </div>

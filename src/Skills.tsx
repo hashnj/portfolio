@@ -4,12 +4,14 @@ import {
   SiRecoil
 } from "react-icons/si";
 
+const react = <SiReact size={50} color="#61DAFB" />;
+
 const SkillList = [
   {
     title: "React.js",
     link: "https://react.dev/",
     color: "#61DAFB",
-    logo: <SiReact size={50} color="#61DAFB" />,
+    logo: react,
   },
   {
     title: "Next.js",
